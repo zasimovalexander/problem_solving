@@ -1,4 +1,4 @@
-import re
+from re import fullmatch as re__fullmatch
 
 PATT_DIV = {3: r'^(?:0|1(?:01*0)*1)*$',
             5: r'^(0|1(10)*(0|11)(01*0(01)*(1|00))*1)+$'}
@@ -43,6 +43,6 @@ def bin_div_3_5(mode: int,
         raise ValueError("Mode must be 3 or 5")
     result = []
     for bs in bit_strings:
-        prefix = 'is' if re.fullmatch(patt, bs) else 'not'
+        prefix = 'is' if re__fullmatch(patt, bs) else 'not'
         result.append(f'{prefix}/{mode}:"{bs}"')
     return result
