@@ -11,8 +11,10 @@ Notes:
     overhead in hot paths.
 
 Researching ideas:
-      sv = bytearray([0]) + bytearray([1] * (up - 1))
-      ...
+    • Used:
+        up //= 2  →  up >>= 1
+    • Maybe:
+        [False] + [True] * (up - 1)  →  bytearray([0]) + bytearray([1] * (up - 1))
 """
 
 
@@ -31,12 +33,12 @@ def sieve(up):
           (a * a) // 2 |a = 2i + 1| = 2i^2 + 2i = 2i(i + 1)
     """
     yield 2
-    up >>= 1  # up //= 2
+    up >>= 1
     sv = [False] + [True] * (up - 1)
     for (i, ver) in enumerate(sv):
         if ver:
             ix2 = 2 * i
-            a = ix2 + 1  # start index for (2i+1)^2
+            a = ix2 + 1
             yield a
             for j in range(ix2 * i + ix2, up, a):
                 sv[j] = False
