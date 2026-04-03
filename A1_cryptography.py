@@ -4,7 +4,7 @@ ABC = 'abcdefghijklmnopqrstuvwxyz'
 
 class VigenereCipher:
     """
-    Vigenere Cipher Helper.
+    Vigenere Cipher helper.
 
     Idea:
         Processes text character by character using a repeating key. Instead of the classical 2D Vigenere square
@@ -88,7 +88,7 @@ for suit in ('CSB', 'DHR'):
 
 class CardChameleon:
     """
-    Card-Chameleon, a Cipher with Playing Cards.
+    Card-Chameleon, a cipher with playing cards.
 
     Idea:
         Implementation of a card-driven stream cipher where the deck acts as mutable state. Each symbol is transformed
